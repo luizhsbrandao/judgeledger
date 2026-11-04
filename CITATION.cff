@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use judgeledger in academic work, please cite it as below."
+title: "judgeledger: a local ledger of analytic judgments with locked resolution criteria"
+abstract: >-
+  A command-line tool that records analytic judgments with their resolution criteria locked before
+  the fact, chains every action into an append-only hash log, requires a cited source to resolve an
+  entry, and scores the declared probability intervals with the CRPS.
+type: software
+authors:
+  - family-names: "Brandão"
+    given-names: "Luiz H. S."
+    email: "intellecta.contact@proton.me"
+    orcid: ""
+repository-code: "https://github.com/luizhsbrandao/judgeledger"
+url: "https://github.com/luizhsbrandao/judgeledger"
+license: MIT
+version: "0.1.0"
+date-released: "2026-11-04"
+keywords:
+  - forecasting
+  - calibration
+  - CRPS
+  - intelligence analysis
+  - provenance
