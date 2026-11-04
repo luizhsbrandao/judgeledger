@@ -35,11 +35,16 @@ properties instead:
 
 ## Install
 
+PyPI publication is pending (the trusted publisher is configured on the account side, not yet on
+the project). Until it lands, install straight from the repository:
+
 ```console
-$ pipx install judgeledger        # or: uv tool install judgeledger
+$ pipx install git+https://github.com/luizhsbrandao/judgeledger
+# or: uv tool install git+https://github.com/luizhsbrandao/judgeledger
 ```
 
-Python ≥ 3.11, no runtime dependencies.
+When 0.1.0 is on the index this becomes `pipx install judgeledger`. Python ≥ 3.11, no runtime
+dependencies.
 
 ## Usage
 

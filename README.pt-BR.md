@@ -32,11 +32,16 @@ contestável não defende julgamento nenhum. O `judgeledger` impõe as proprieda
 
 ## Instalação
 
+A publicação no PyPI está pendente (o trusted publisher está configurado do lado da conta, ainda
+não do projeto). Até lá, instale direto do repositório:
+
 ```console
-$ pipx install judgeledger        # ou: uv tool install judgeledger
+$ pipx install git+https://github.com/luizhsbrandao/judgeledger
+# ou: uv tool install git+https://github.com/luizhsbrandao/judgeledger
 ```
 
-Python ≥ 3.11, sem dependência de runtime.
+Quando a 0.1.0 estiver no índice, vira `pipx install judgeledger`. Python ≥ 3.11, sem dependência
+de runtime.
 
 ## Uso
 
