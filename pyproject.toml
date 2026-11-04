@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "judgeledger"
+version = "0.1.0"
+description = "Local, hash-chained ledger of analytic judgments: the question and its resolution criteria are locked before the fact, resolutions carry a source."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Luiz H. S. Brandão" }]
+keywords = [
+  "forecasting",
+  "calibration",
+  "brier-score",
+  "crps",
+  "intelligence-analysis",
+  "provenance",
+  "judgment",
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Science/Research",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Scientific/Engineering :: Information Analysis",
+  "Typing :: Typed",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.urls]
+Homepage = "https://github.com/luizhsbrandao/judgeledger"
+Issues = "https://github.com/luizhsbrandao/judgeledger/issues"
+
+[project.scripts]
+jl = "judgeledger.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

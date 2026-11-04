@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/luizhsbrandao/judgeledger/schema/entry.schema.json",
+  "title": "judgeledger entry",
+  "description": "One judgment, as stored in ledger.jsonl. Immutable after creation.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "question",
+    "criteria",
+    "due",
+    "kind",
+    "created_at",
+    "actor",
+    "horizon_days",
+    "tags",
+    "origin",
+    "schema_version"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^E[0-9]{3,}$"
+    },
+    "question": {
+      "type": "string",
+      "minLength": 1
+    },
+    "criteria": {
+      "type": "string",
+      "minLength": 10,
+      "description": "What settles the question. Locked at creation; cannot be rewritten later."
+    },
+    "due": {
+      "type": "string",
+      "format": "date",
+      "description": "Resolution deadline. Must be after created_at: a judgment cannot be backdated."
+    },
+    "kind": {
+      "enum": ["point", "interval"]
+    },
+    "p": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Present only when kind is point."
+    },
+    "l": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Lower bound, present only when kind is interval."
+    },
+    "u": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Upper bound, present only when kind is interval."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "actor": {
+      "type": "string",
+      "minLength": 1
+    },
+    "horizon_days": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "origin": {
+      "type": ["string", "null"]
+    },
+    "schema_version": {
+      "type": "integer",
+      "minimum": 1
+    }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "kind": { "const": "point" } } },
+      "then": { "required": ["p"], "not": { "anyOf": [{ "required": ["l"] }, { "required": ["u"] }] } }
+    },
+    {
+      "if": { "properties": { "kind": { "const": "interval" } } },
+      "then": { "required": ["l", "u"], "not": { "required": ["p"] } }
+    }
+  ]
+}
