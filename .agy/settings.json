@@ -1,0 +1,49 @@
+{
+  "permissions": {
+    "allow": [
+      "read_file(/home/lhsb/code/judgeledger)",
+      "command(git status)",
+      "command(git ls-files)",
+      "command(git rev-parse)",
+      "command(git describe)"
+    ],
+    "deny": [
+      "command(rm)",
+      "command(rmdir)",
+      "command(mv)",
+      "command(cp)",
+      "command(chmod)",
+      "command(chown)",
+      "command(tee)",
+      "command(sed)",
+      "command(awk)",
+      "command(sudo)",
+      "command(su)",
+      "command(git push)",
+      "command(git commit)",
+      "command(git add)",
+      "command(git reset)",
+      "command(git checkout)",
+      "command(git switch)",
+      "command(git clean)",
+      "command(git worktree)",
+      "command(npm)",
+      "command(npx)",
+      "command(cargo)",
+      "command(pip)",
+      "command(pip3)",
+      "command(python)",
+      "command(python3)",
+      "command(node)",
+      "command(curl)",
+      "command(wget)",
+      "command(ssh)",
+      "command(scp)",
+      "command(rsync)",
+      "write_file(*)",
+      "read_url(*)",
+      "execute_url(*)",
+      "mcp(*)"
+    ]
+  }
+}
